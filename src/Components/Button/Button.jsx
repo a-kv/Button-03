@@ -7,7 +7,7 @@ class Button extends React.Component {
         this.state = {
             number: 0,
         };
-        this.newTaskTitleRef = React.createRef();
+        this.newText= React.createRef();
     }
 
     onClickUp = () => {
@@ -16,17 +16,17 @@ class Button extends React.Component {
                 number: preNum.number + 1,
             };  })
 
-            let newTitle = this.newTaskTitleRef.current.value;
-            alert('Hey, ' + this.newTaskTitleRef.current.value + '!');
+            let newTitle = this.newText.current.value;
+            alert('Hey, ' + this.newText.current.value + '!');
 
-            this.newTaskTitleRef.current.value = '';
+            this.newText.current.value = '';
     };
 
     render = () => {
         return (
             <div>
                 <span>  {this.state.number} </span>
-                <input ref={this.newTaskTitleRef} type="text"/>
+                <input ref={this.newText} type="text"/>
                 <button onClick={this.onClickUp}>Click me!</button>
 
             </div>
