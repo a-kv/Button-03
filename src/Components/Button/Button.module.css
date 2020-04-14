@@ -1,0 +1,31 @@
+button {
+    border: none;
+    margin: 5px;
+    padding: 10px 20px;
+
+}
+
+.default {
+    border: 1px solid grey;
+}
+
+.loading {
+    background-color: lightblue;
+
+}
+
+.primary {
+    background-color: blue;
+    color: white;
+}
+
+.danger {
+    background-color: red;
+    color: white;
+
+}
+.loading img {
+    height: 15px;
+    margin-right: 10px;
+
+}
