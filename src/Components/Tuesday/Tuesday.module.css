@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    height: 100vh;
+    background-color: #111112;
+    /*font-family: BloodLust;*/
+    width: 100%;
+    color: #b6b4b4;
+    flex-direction: column;
+
+}

@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-// import store from "./state";
+import {HashRouter} from 'react-router-dom';
+import './fonts/BloodLust-eXxm.ttf'
 
 ReactDOM.render(
-
+<HashRouter>
   <React.StrictMode>
     <App  />
   </React.StrictMode>,
+</HashRouter>,
   document.getElementById('root')
 );
 

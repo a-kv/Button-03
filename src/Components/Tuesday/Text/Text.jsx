@@ -1,19 +1,19 @@
 import React from 'react';
 
 
-class Input extends React.Component {
+class Text extends React.Component {
+
 
     render = () => {
         return (
             <div>
-         <input ref={this.props.constructor} type="text"/>
-
+                <span>{this.props.number} </span>
             </div>
         )
     };
 }
 
-export default Input;
+export default Text;
 
 
 

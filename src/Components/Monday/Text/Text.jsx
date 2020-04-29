@@ -7,13 +7,12 @@ class Text extends React.Component {
     render = () => {
         return (
             <div>
-                <span>{this.props.constructor} </span>
+                <span>{this.props.number} </span>
             </div>
         )
     };
 }
 
 export default Text;
-
 
 

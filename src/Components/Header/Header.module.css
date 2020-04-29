@@ -1,0 +1,26 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 40px;
+    /*height: 30%;*/
+    background-color: #111112;
+    font-family: BloodLust;
+    width: 100%;
+
+}
+.headerTitle{
+
+    display: flex;
+    height: 35%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.headerTitle span {
+    color: #a30707;
+}
+.secondHeaderTitle{
+    font-size: 25px;
+}
