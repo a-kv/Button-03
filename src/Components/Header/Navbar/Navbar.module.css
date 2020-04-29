@@ -4,6 +4,11 @@
     background-color: #111112;
 
 }
-.navbarItem{
+.item a{
+    color: #d5d5d5;
+
+}
+.item a.activeItem{
+    color: #a30707;
 
 }

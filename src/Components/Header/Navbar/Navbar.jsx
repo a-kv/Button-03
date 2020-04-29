@@ -8,12 +8,12 @@ class Navbar extends React.Component {
     render = () => {
         return (
             <div className={c.navbar}>
-                <div className={c.navbarItem}>
+                <div className={c.item}>
                     <DrawerNavbarClose onClick={this.props.onClick}/>
-                    <NavLink to='/monday'>Monday</NavLink>
+                    <NavLink to='/monday' activeClassName={c.activeItem}>Monday</NavLink>
                 </div>
-                <div className={c.navbarItem}>
-                    <NavLink to='/tuesday'>Tuesday</NavLink>
+                <div className={c.item}>
+                    <NavLink to='/tuesday' activeClassName={c.activeItem}>Tuesday</NavLink>
                 </div>
             </div>
         );
