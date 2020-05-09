@@ -1,38 +1,33 @@
 import React from 'react';
 import c from './Header.module.css';
 import Navbar from "./Navbar/Navbar";
-import DrawerNavbar from "./DrawerNavbar/DrawerNavbar";
+import menu from '../../assets/image/002-null.svg';
+import cross from '../../assets/image/001-cross.svg';
 
 class Header extends React.Component {
     state = {
-        navbarOpen: false
+        navbarOpen: false,
     };
-    drawerNavbarOnClick = () => {
+    openNavbar = () => {
         this.setState({navbarOpen: true})
     };
-    //         return {
-    //             navbarOpen: prevState.navbarOpen
-    //         };
-    //     });
-    // };
-
-    backdropClickHandler = () => {
+    closeNavbar = () => {
         this.setState({navbarOpen: false})
     };
 
     render = () => {
         let sideNavbar;
-        if (this.state.navbarOpen) {
-            sideNavbar = <Navbar onClick={this.backdropClickHandler}/>;
+        if (this.state.navbarOpen === true) {
+            sideNavbar = <Navbar/>;
+        }else{
+            return <img src={menu} onClick={this.openNavbar}/>;
         }
 
         return (
             <div className={c.header}>
-                <DrawerNavbar onClick={this.drawerNavbarOnClick}/>
-                {sideNavbar}
                 <div className={c.headerTitle}>
-                    <span>Homework from Ignat</span>
-                    <span className={c.secondHeaderTitle}>only hardcore</span>
+                    <img src={cross} onClick={this.closeNavbar}/>
+                    {sideNavbar}
                 </div>
             </div>
         );

@@ -1,1 +1,16 @@
-
+.buttonClick button{
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    width: 200px;
+    height: 50px;
+    color: #a30707;
+    background-color: white;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #4c0202;
+}
+.buttonClick button:hover {
+    font-size: 1.7em;
+}

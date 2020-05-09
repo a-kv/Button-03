@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #111112;
+  background: linear-gradient(0.15turn, #c3f6e1, #8187f8);
 
 }
 
@@ -15,5 +15,5 @@ code {
 }
 @font-face {
   font-family: 'BloodLust';
-  src: local('BloodLust'), url(./fonts/BloodLust-eXxm.ttf) format('truetype');
+  src: local('BloodLust'), url(assets/fonts/BloodLust-eXxm.ttf) format('truetype');
 }

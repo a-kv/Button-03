@@ -1,0 +1,44 @@
+.error {
+    border-color: red;
+    border-radius: 20px;
+    border-style: solid;
+    background-color: white;
+    width: 350px;
+    height: 50px;
+    color: #a30707;
+    margin: 20px;
+}
+
+button {
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    min-width: 70px;
+    height: 50px;
+    color: #070fa3;
+    background-color: white;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px 0.5px #010350;
+}
+.todoListHeader input{
+    border-radius: 20px;
+    border-style: solid;
+    background-color: white;
+    width: 230px;
+    height: 50px;
+    /*color: #11006d;*/
+    margin: 20px;
+    font-size: 1.3em;
+
+}
+/*button:hover {*/
+/*    font-size: 1.1em;*/
+/*}*/
+.todoListHeaderTitle{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #010350;
+
+}
