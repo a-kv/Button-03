@@ -53,13 +53,9 @@ class Tuesday extends React.Component {
     }
 
     deleteTask = (taskId) => {
-        let newTasks = this.state.tasks;
-        newTasks.splice(taskId, 1);
-        this.setState({
-                    tasks: newTasks
-                }, this.saveState)
-            }
-
+        let newTasks = this.state.tasks.splice(taskId,1 );
+        this.setState({items: newTasks},this.saveState);
+    };
 
    changeTask = (taskId, obj) => {
         let newTasks = this.state.tasks.map(t => {
