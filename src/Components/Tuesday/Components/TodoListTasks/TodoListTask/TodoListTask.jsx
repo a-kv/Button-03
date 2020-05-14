@@ -18,6 +18,13 @@ class TodoListTask extends React.Component {
     onTitleChanged = (e) => {
         this.props.changeTitle(this.props.task.id, e.currentTarget.value)
     }
+    onPriorityChanged = (e) => {
+        this.props.changePriority(this.props.task.id, e.currentTarget.value)
+    }
+
+    // onHighClick = () => {this.props.changePriority('high')}
+    // onMedFilterClick = () => {this.props.changePriority('med')}
+    // onLowClick = () => {this.props.changePriority('low')}
 
     render = () => {
         let isDoneClasses = this.props.task.isDone ? "todoList-task done" : "todoList-task";
@@ -37,12 +44,14 @@ class TodoListTask extends React.Component {
                 }
                     <span>- priority:
                         <select>
-                    <option>{this.props.task.priority}</option>
-                    <option>med</option>
-                    <option>high</option>
+                    <option onClick={this.onPriorityChanged} value={this.props.task.priority}>low</option>
+                    <option onClick={this.onPriorityChanged} value={this.props.task.priority}>med</option>
+                    <option onClick={this.onPriorityChanged} value={this.props.task.priority}>high</option>
                 </select>
                     </span>
-                   <button className={c.deleteTaskButton} onClick={this.props.deleteTask}>X</button>
+                   <button className={c.deleteTaskButton}
+                           onClick={() => this.props.deleteTask(this.props.id)}
+                   >X</button>
 
 
             </div>
