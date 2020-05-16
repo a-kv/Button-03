@@ -10,11 +10,11 @@ class Input extends React.Component {
             <div className={c.nameArea}>
                 <input
                     className={this.props.style}
-                    value={this.props.value}
+                    title={this.props.title}
                     placeholder='Your name...'
                     type="text"
-                    onChange={this.props.onChange}
                     onKeyPress={this.props.onKeyPress}
+                    onTitleChange={this.props.onTitleChange}
                  />
             </div>)
     }
