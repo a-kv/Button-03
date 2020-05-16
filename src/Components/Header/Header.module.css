@@ -1,15 +1,14 @@
 .header{
     display: flex;
-
     font-family: -apple-system, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     width: 100%;
     color: white;
 
 }
-img {
+.navMenu{
     height: 40px;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     /*color: #111112;*/
 }

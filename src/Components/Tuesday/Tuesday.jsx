@@ -3,7 +3,7 @@ import {restoreStore, saveState} from "./stateTodoList";
 import c from './Tuesday.module.css';
 import TodoList from "./TodoList";
 import AddNewItemForm from "./Components/Header/AddNewItemForm";
-
+import loading from '../../assets/150x150.gif';
 
 class Tuesday extends React.Component {
 
@@ -24,22 +24,19 @@ class Tuesday extends React.Component {
     }
     restoreTodolists = () => {
         let newState = restoreStore('todolists', this.state)
-        let stateAsString = localStorage.getItem('todolists');
-        if (stateAsString) {
-            newState = JSON.parse(stateAsString);
-        }
-
         this.setState(newState, () => {
             this.state.todolists.forEach(t => {
-                if (t.id >= this.nextTaskId) {
-                    this.nextTaskId = t.id + 1
+                if (t.id >= this.nextTodoList) {
+                    this.nextTodoList = t.id + 1
                 }
             })
         });
     }
 
     componentDidMount() {
-        // setTimeout(this.setState({loading: false}),3000)
+       setTimeout(() => {
+            this.setState({loading: false})
+        }, 3000)
         this.restoreTodolists();
 
     }
@@ -54,14 +51,17 @@ class Tuesday extends React.Component {
     };
 
     render = () => {
+        if (this.state.loading === true){
+            return <img className={c.loading} src={loading} alt=""/>;
+        } else{
         let todolists = this.state.todolists.map(tl => {
-            return <TodoList key={tl.id} id={tl.id} title={tl.title}/>
+            return <TodoList className={c.todoList} key={tl.id} id={tl.id} title={tl.title}/>
         });
 
         return (
             <div className={c.counter}>
                 <AddNewItemForm addItem={this.addTodoList}/>
-                <div className="Tuesday">
+                <div className={c.tuesday}>
                     {todolists}
                 </div>
             </div>
@@ -69,5 +69,5 @@ class Tuesday extends React.Component {
         );
     };
 }
-
+}
 export default Tuesday;

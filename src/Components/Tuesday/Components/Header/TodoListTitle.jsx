@@ -1,4 +1,5 @@
 import React from 'react';
+import c from './Header.module.css';
 
 class TodoListTitle extends React.Component {
 
@@ -7,7 +8,7 @@ class TodoListTitle extends React.Component {
 
         return (
             <div className="todoList-header">
-                <h3 className="todoList-header__title">
+                <h3 className={c.todoListHeaderTitle}>
                     {this.props.title}
                     {/*What to Learn*/}
                 </h3>

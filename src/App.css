@@ -1,12 +1,7 @@
 .App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   font-size: 18px;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+  height: 100vh;
+
 
   /*background: linear-gradient(0.15turn, #eeee76, #fc244f);*/
 }

@@ -1,27 +1,26 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
 }
 
-/*.container button {*/
-/*    !*display: flex;*!*/
-/*    margin: 5px;*/
-/*    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;*/
+.container button {
+    display: flex;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #ffffff;
+    background-color: #070fa3;
+    height: 30px;
+    border: none;
+    outline: none;
+    width: 100px;
+}
 
-/*    outline: none;*/
-/*    font-size: 0.9em;*/
-/*    font-weight: bold;*/
-/*    text-shadow: 0.5px 0.5px 0.5px #010350;*/
+.container button:hover {
+    opacity: 0.8;
+}
 
-/*}*/
-
-/*.container button:hover {*/
-/*    opacity: 0.8;*/
-/*}*/
-
-/*.buttons {*/
-/*    display: flex;*/
-/*    width: 100%;*/
-/*    justify-content: space-between;*/
-/*}*/
+.buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}

@@ -15,6 +15,7 @@ class TodoListTasks extends React.Component {
                     changeTitle={this.props.changeTitle}
                     deleteTask={this.props.deleteTask}
                     changePriority={this.props.changePriority}
+                    priority={this.props.priority}
             />
            }
                 let tasksElements = this.props.tasks.map(myFn);

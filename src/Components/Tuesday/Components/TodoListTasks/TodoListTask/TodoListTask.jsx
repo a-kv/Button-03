@@ -27,6 +27,15 @@ class TodoListTask extends React.Component {
     // onLowClick = () => {this.props.changePriority('low')}
 
     render = () => {
+        // let priority;
+        // switch (this.props.task.priority) {
+        //         case 0: priority = 'low';
+        //         case 1: priority = 'med';
+        //         case 2: priority = 'high';
+        //         default:priority = 'low';
+        //     }
+
+
         let isDoneClasses = this.props.task.isDone ? "todoList-task done" : "todoList-task";
         return (
             <div className={c.todoListTask}>
@@ -40,15 +49,15 @@ class TodoListTask extends React.Component {
                              value={this.props.task.title}
                              autoFocus={true}
                              onBlur={this.deactivatedEditMode}/>
-                    : <span onClick={this.activatedEditMode}>{this.props.task.id} : {this.props.task.title}</span>
+                    : <span onClick={this.activatedEditMode}>{this.props.task.id} : {this.props.task.title} </span>
                 }
-                    <span>- priority:
-                        <select>
-                    <option onClick={this.onPriorityChanged} value={this.props.task.priority}>low</option>
-                    <option onClick={this.onPriorityChanged} value={this.props.task.priority}>med</option>
-                    <option onClick={this.onPriorityChanged} value={this.props.task.priority}>high</option>
-                </select>
-                    </span>
+                    <span>
+                        <select onChange={this.onPriorityChanged}>
+                            <option label='Choose priority'>Choose priority</option>
+                            <option>low</option>
+                            <option>med</option>
+                            <option>high</option>
+                </select> {this.props.task.priority} </span>
                    <button className={c.deleteTaskButton}
                            onClick={() => this.props.deleteTask(this.props.id)}
                    >X</button>

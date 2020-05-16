@@ -42,6 +42,11 @@ class Monday extends React.Component {
         this.setState({names: newName});
     };
 
+//     if (newTitle === "") {
+//     this.setState({error: true});
+// }else{
+//     this.setState( {error: false});
+
     onKeyPress = (e) => {
         if(e.key === 'Enter'){
             this.onClickUp()

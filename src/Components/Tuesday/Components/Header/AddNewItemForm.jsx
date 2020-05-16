@@ -1,5 +1,5 @@
 import React from 'react';
-
+import c from './Header.module.css';
 class AddNewItemForm extends React.Component {
     state={
         error: true,
@@ -32,7 +32,7 @@ class AddNewItemForm extends React.Component {
         let errorClass = this.state.error ? 'error': '';
         return (
             <div className="todoList-header">
-                <div className="todoList-newTaskForm">
+                <div className={c.addItemForm}>
                     <input
                         onChange={this.onTitleChange}
                         className={errorClass}
