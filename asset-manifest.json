@@ -1,23 +1,27 @@
 {
   "files": {
-    "main.css": "/button-03/static/css/main.50749f44.chunk.css",
-    "main.js": "/button-03/static/js/main.a37877d0.chunk.js",
-    "main.js.map": "/button-03/static/js/main.a37877d0.chunk.js.map",
+    "main.css": "/button-03/static/css/main.75b33e7d.chunk.css",
+    "main.js": "/button-03/static/js/main.45c47852.chunk.js",
+    "main.js.map": "/button-03/static/js/main.45c47852.chunk.js.map",
     "runtime-main.js": "/button-03/static/js/runtime-main.7152f35d.js",
     "runtime-main.js.map": "/button-03/static/js/runtime-main.7152f35d.js.map",
-    "static/js/2.8ad26b86.chunk.js": "/button-03/static/js/2.8ad26b86.chunk.js",
-    "static/js/2.8ad26b86.chunk.js.map": "/button-03/static/js/2.8ad26b86.chunk.js.map",
+    "static/js/2.cd6f0583.chunk.js": "/button-03/static/js/2.cd6f0583.chunk.js",
+    "static/js/2.cd6f0583.chunk.js.map": "/button-03/static/js/2.cd6f0583.chunk.js.map",
     "index.html": "/button-03/index.html",
-    "precache-manifest.cd5c212b04453509c24bac56e2d33a17.js": "/button-03/precache-manifest.cd5c212b04453509c24bac56e2d33a17.js",
+    "precache-manifest.4f70e2620b19410b7c2deccbfd6e0699.js": "/button-03/precache-manifest.4f70e2620b19410b7c2deccbfd6e0699.js",
     "service-worker.js": "/button-03/service-worker.js",
-    "static/css/main.50749f44.chunk.css.map": "/button-03/static/css/main.50749f44.chunk.css.map",
-    "static/js/2.8ad26b86.chunk.js.LICENSE.txt": "/button-03/static/js/2.8ad26b86.chunk.js.LICENSE.txt",
-    "static/media/BloodLust-eXxm.ttf": "/button-03/static/media/BloodLust-eXxm.87a45c8f.ttf"
+    "static/css/main.75b33e7d.chunk.css.map": "/button-03/static/css/main.75b33e7d.chunk.css.map",
+    "static/js/2.cd6f0583.chunk.js.LICENSE.txt": "/button-03/static/js/2.cd6f0583.chunk.js.LICENSE.txt",
+    "static/media/001-cross.svg": "/button-03/static/media/001-cross.9dd23d2a.svg",
+    "static/media/150x150.gif": "/button-03/static/media/150x150.1b4f96a6.gif",
+    "static/media/BloodLust-eXxm.ttf": "/button-03/static/media/BloodLust-eXxm.87a45c8f.ttf",
+    "static/media/close.svg": "/button-03/static/media/close.5d8fa210.svg",
+    "static/media/menu.svg": "/button-03/static/media/menu.a450cc10.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.7152f35d.js",
-    "static/js/2.8ad26b86.chunk.js",
-    "static/css/main.50749f44.chunk.css",
-    "static/js/main.a37877d0.chunk.js"
+    "static/js/2.cd6f0583.chunk.js",
+    "static/css/main.75b33e7d.chunk.css",
+    "static/js/main.45c47852.chunk.js"
   ]
 }
