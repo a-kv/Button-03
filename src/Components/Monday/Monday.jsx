@@ -6,74 +6,65 @@ import c from './Mondey.module.css';
 
 
 class Monday extends React.Component {
-
-
     state = {
         number: 0,
-        names: [
-            {name: 'someName'}
-        ],
-        style: 'bordred',
+        error: true,
+        names: ['some name'],
         title: ''
     }
-
-
-    onChange = (event) => {
-        if (event.currentTarget.value === '') {
-            this.setState({style: 'bordred'})
-        } else {
-            this.setState({style: 'bord'})
-        }
-    }
-    onClickUp = () => {
+    onChangeClick = () => {
         this.setState((preNum) => {
             return {
                 number: preNum.number + 1,
             };
         })
-        let newTitle = this.state.title;
-        if (newTitle === '') {
-            return alert('error');
+        let newTitle = this.state.title.trim();
+        this.state.title = ""; //проверка на пустую строку
+        if (newTitle === "") {
+            this.setState({error: true});
+            alert('error')
         } else {
-            alert('Hey, ' + this.state.title + '!');
-        }
-        this.state.title = '';
-        let newText = {
-            name: newTitle
-        };
-        let newName = [...this.state.names, newText];
 
-        this.setState({names: newName});
+            this.setState({error: false});
+            let newName = [...this.state.names, newTitle];
+            this.setState({names: newName})
+            alert('Hey, ' + newTitle + '!');
+            this.state.title = '';
+        }
+
     };
-    // onTitleChange = (e) => {
-    //     this.setState({
-    //         title: e.currentTarget.value
-    //     });
-    // };
+    onTitleChange = (e) => {
+        this.setState({
+            error: false,
+            title: e.currentTarget.value
+        });
+    };
     onKeyPress = (e) => {
         if (e.key === 'Enter') {
-            this.onClickUp()
+            return this.onChangeClick()
         }
-
     }
 
-    render = () => {
+    render = (props) => {
+        let errorClass = this.state.error ? 'error' : '';
         return (
             <div className={c.container}>
                 <Text number={this.state.number}/>
-                <Input
-                    title={this.state.title}
-                    style={this.state.style}
-                    onChange={this.onChange}
+                <input
+                    onChange={this.onTitleChange}
+                    className={errorClass}
+                    type="text"
+                    placeholder="New-item-name"
                     onKeyPress={this.onKeyPress}
-                    onTitleChange={this.onTitleChange}
+                    value={this.state.title}
                 />
-                <Button onClickUp={this.onClickUp}/>
+                <Button onClick={this.onChangeClick}/>
 
             </div>
         );
     }
 }
+
 
 export default Monday;
 

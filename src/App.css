@@ -6,6 +6,12 @@
   /*background: linear-gradient(0.15turn, #eeee76, #fc244f);*/
 }
 
+.bord {
+
+}
+.bordred {
+  border: solid #a30707;
+}
 
 .todoList {
   width: 500px;

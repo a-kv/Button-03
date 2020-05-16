@@ -3,23 +3,23 @@ import c from './Input.module.css';
 
 
 class Input extends React.Component {
-    
 
-    render = (props) => {
+
+    render = () => {
         return (
             <div className={c.nameArea}>
                 <input
-                    className={this.props.style}
-                    title={this.props.title}
-                    placeholder='Your name...'
+                    onChange={this.props.onTitleChange}
+                    className={this.props.className}
                     type="text"
+                    placeholder="New-item-name"
                     onKeyPress={this.props.onKeyPress}
-                    onTitleChange={this.props.onTitleChange}
-                 />
+                    value={this.props.title}
+                />
             </div>)
     }
 
-    };
+};
 
 
 export default Input;
