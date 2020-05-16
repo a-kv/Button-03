@@ -5,7 +5,6 @@ import Text from "../Monday/Text/Text";
 import c from './Mondey.module.css';
 
 
-
 class Monday extends React.Component {
 
 
@@ -26,29 +25,33 @@ class Monday extends React.Component {
             this.setState({style: 'bord'})
         }
     }
-    onClickUp = (e) => {
+    onClickUp = () => {
         this.setState((preNum) => {
             return {
                 number: preNum.number + 1,
             };
         })
         let newTitle = this.state.title;
-        alert('Hey, ' + this.state.title + '!');
+        if (newTitle === '') {
+            return alert('error');
+        } else {
+            alert('Hey, ' + this.state.title + '!');
+        }
         this.state.title = '';
         let newText = {
             name: newTitle
         };
         let newName = [...this.state.names, newText];
+
         this.setState({names: newName});
     };
-
-//     if (newTitle === "") {
-//     this.setState({error: true});
-// }else{
-//     this.setState( {error: false});
-
+    // onTitleChange = (e) => {
+    //     this.setState({
+    //         title: e.currentTarget.value
+    //     });
+    // };
     onKeyPress = (e) => {
-        if(e.key === 'Enter'){
+        if (e.key === 'Enter') {
             this.onClickUp()
         }
 
@@ -59,10 +62,11 @@ class Monday extends React.Component {
             <div className={c.container}>
                 <Text number={this.state.number}/>
                 <Input
-                    value={this.state.title}
+                    title={this.state.title}
                     style={this.state.style}
                     onChange={this.onChange}
                     onKeyPress={this.onKeyPress}
+                    onTitleChange={this.onTitleChange}
                 />
                 <Button onClickUp={this.onClickUp}/>
 
