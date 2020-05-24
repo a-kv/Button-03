@@ -4,8 +4,7 @@ import TodoListTasks from "./Components/TodoListTasks/TodoListTasks";
 import TodoListFooter from "./Components/Footer/Footer";
 import TodoListTitle from "./Components/Header/TodoListTitle";
 import AddNewItemForm from "./Components/Header/AddNewItemForm";
-import {saveState, restoreStore} from "./stateTodoList";
-
+import {restoreStore, saveState} from "./stateTodoList";
 
 
 class TodoList extends React.Component {
@@ -26,6 +25,8 @@ class TodoList extends React.Component {
 
         ],
         filterValue: 'All',
+
+
     };
 
     saveStateOurState = () => {
@@ -46,6 +47,7 @@ class TodoList extends React.Component {
     componentDidMount() {
         this.restoreStoreOurState(); // удобно запускать сет таймауты и тд
     }
+
     deleteTask = (taskId) => {
         this.setState({tasks: this.state.tasks.filter(t => t.id !== taskId)},
             this.saveStateOurState);
@@ -64,15 +66,25 @@ class TodoList extends React.Component {
     }
 
     changeStatus = (taskId, isDone) => {
-        this.changeTask(taskId, {isDone: isDone})
+        this.changeTask(taskId, {
+            isDone: isDone,
+            updated:new Date().toLocaleTimeString('ru-RU', {hour: '2-digit', minute: '2-digit'}),
+            finished: isDone ? new Date() : null
+        })
     }
 
     changeTitle = (taskId, title) => {
-        this.changeTask(taskId, {title: title})
+        this.changeTask(taskId, {
+            title: title,
+            updated:new Date()
+        })
 
     }
     changePriority = (taskId, priority) => {
-        this.changeTask(taskId, {priority: priority})
+        this.changeTask(taskId, {
+            priority: priority,
+            updated:new Date()
+        })
     }
 
     addTask = (newTitle, newPriority) => {
@@ -80,7 +92,10 @@ class TodoList extends React.Component {
             id: this.nextTaskId,
             title: newTitle,
             isDone: false,
-            priority: newPriority
+            priority: newPriority,
+            created: new Date(),
+            updated: null,
+            finished: null
         };
         this.nextTaskId++;
         let newTasks = [...this.state.tasks, newTask];
@@ -92,19 +107,6 @@ class TodoList extends React.Component {
             filterValue: newFilterValue
         });
     }
-    // changePriority = (e) => {
-    //     this.setState({
-    //         priority: e.target.value
-    //     }, this.saveStates);
-    // }
-
-  // changePriorityValue = (newPriority) => {
-  //       this.setState({
-  //           priority: newPriority
-  //       };
-  //   }
-
-
     render = () => {
 
         let filteredTasks = this.state.tasks.filter(t => {
@@ -120,22 +122,23 @@ class TodoList extends React.Component {
 
         return (
 
-                <div className={c.todoList}>
-                    <TodoListTitle title={this.props.title}/>
-                    <AddNewItemForm addItem={this.addTask}/>
-                    <TodoListTasks id={this.state.tasks.id}
-                                   priority={this.state.priority}
-                                   tasks={filteredTasks}
-                                   deleteTask={this.deleteTask}
-                                   changeTitle={this.changeTitle}
-                                   changeStatus={this.changeStatus}
-                                   changePriority={this.changePriority}
-
-
-                    />
-                    <TodoListFooter filterValue={this.state.filterValue}
-                                    changeFilter={this.changeFilter} />
-                </div>
+            <div className={c.todoList} >
+                <TodoListTitle title={this.props.title}/>
+                <AddNewItemForm addItem={this.addTask}/>
+                <TodoListTasks id={this.state.tasks.id}
+                               priority={this.state.priority}
+                               created={this.state.created}
+                               updated={this.state.updated}
+                               finished={this.state.finished}
+                               tasks={filteredTasks}
+                               deleteTask={this.deleteTask}
+                               changeTitle={this.changeTitle}
+                               changeStatus={this.changeStatus}
+                               changePriority={this.changePriority}
+                            />
+                <TodoListFooter filterValue={this.state.filterValue}
+                                changeFilter={this.changeFilter}/>
+            </div>
 
         );
     }

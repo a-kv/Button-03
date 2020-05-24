@@ -1,6 +1,6 @@
 {
-  "homepage": "https://a-kv.github.io/button-03",
-  "name": "hw-ignat-03",
+  "homepage": "https://a-kv.github.io/ignat-hw",
+  "name": "ignat-hw",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,8 +10,10 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "gh-pages": "^2.2.0",
+    "moment": "^2.18.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-moment": "^0.9.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "yarn": "^1.22.4"

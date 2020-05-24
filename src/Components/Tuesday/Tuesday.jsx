@@ -5,6 +5,7 @@ import TodoList from "./TodoList";
 import AddNewItemForm from "./Components/Header/AddNewItemForm";
 import loading from '../../assets/150x150.gif';
 
+
 class Tuesday extends React.Component {
 
     state = {
@@ -14,7 +15,10 @@ class Tuesday extends React.Component {
             // {id: 3, title: 'TS'},
             // {id: 4, title: 'react'}
         ],
-        loading: true
+        loading: true,
+        // created: '12:00',
+        // updated: '12:15',
+        // finished: '17:00'
     }
     nextTodoList = 0;
 
@@ -34,9 +38,9 @@ class Tuesday extends React.Component {
     }
 
     componentDidMount() {
-       setTimeout(() => {
+        setTimeout(() => {
             this.setState({loading: false})
-        }, 3000)
+        }, 1000)
         this.restoreTodolists();
 
     }
@@ -51,23 +55,25 @@ class Tuesday extends React.Component {
     };
 
     render = () => {
-        if (this.state.loading === true){
+        if (this.state.loading === true) {
             return <img className={c.loading} src={loading} alt=""/>;
-        } else{
-        let todolists = this.state.todolists.map(tl => {
-            return <TodoList className={c.todoList} key={tl.id} id={tl.id} title={tl.title}/>
-        });
+        } else {
+            let todolists = this.state.todolists.map(tl => {
+                return <TodoList className={c.todoList} key={tl.id} id={tl.id} title={tl.title}/>
+            });
 
-        return (
-            <div className={c.counter}>
-                <AddNewItemForm addItem={this.addTodoList}/>
-                <div className={c.tuesday}>
-                    {todolists}
+            return (
+                <div className={c.counter} >
+                    {/*<Moment format="YYYY-MM-DD HH:mm" interval={1000}/>*/}
+                    <AddNewItemForm addItem={this.addTodoList}/>
+                    <div className={c.tuesday}>
+                        {todolists}
+                    </div>
                 </div>
-            </div>
 
-        );
-    };
+            );
+        };
+    }
 }
-}
+
 export default Tuesday;

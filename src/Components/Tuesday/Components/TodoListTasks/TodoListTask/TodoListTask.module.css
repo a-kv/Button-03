@@ -3,6 +3,10 @@
     width: 100%;
     justify-content: stretch;
 }
+.todoListTask:hover title{
+
+}
+
 .deleteTaskButton {
     font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     color: #ffffff;
