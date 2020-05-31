@@ -64,26 +64,29 @@ class TodoList extends React.Component {
             tasks: newTasks
         }, this.saveStateOurState)
     }
+    getDate = () =>{
+        return new Date().toLocaleTimeString('ru-RU', {hour: '2-digit', minute: '2-digit'}) + ''
+    }
 
     changeStatus = (taskId, isDone) => {
         this.changeTask(taskId, {
             isDone: isDone,
-            updated:new Date().toLocaleTimeString('ru-RU', {hour: '2-digit', minute: '2-digit'}),
-            finished: isDone ? new Date() : null
+            updated: this.getDate(),
+            finished: isDone ? this.getDate() : null
         })
     }
 
     changeTitle = (taskId, title) => {
         this.changeTask(taskId, {
             title: title,
-            updated:new Date()
+            updated: this.getDate()
         })
 
     }
     changePriority = (taskId, priority) => {
         this.changeTask(taskId, {
             priority: priority,
-            updated:new Date()
+            updated: this.getDate()
         })
     }
 
@@ -93,7 +96,7 @@ class TodoList extends React.Component {
             title: newTitle,
             isDone: false,
             priority: newPriority,
-            created: new Date(),
+            created:this.getDate(),
             updated: null,
             finished: null
         };
