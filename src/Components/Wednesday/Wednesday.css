@@ -1,0 +1,23 @@
+/*.wednesday {*/
+/*    display: flex;*/
+/*    height: 100vh;*/
+/*}*/
+
+.light {
+    display: flex;
+    height: 100vh;
+    background-color: whitesmoke;
+}
+
+.dark {
+    display: flex;
+    height: 100vh;
+    color: white;
+    background-color: #4b4b4b;
+}
+
+.blue {
+    display: flex;
+    height: 100vh;
+    background-color: #7488ff;
+}

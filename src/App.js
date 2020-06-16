@@ -1,25 +1,26 @@
 import React from 'react';
 import './App.css';
-import Tuesday from "./Components/Tuesday/Tuesday";
 import {HashRouter, Route} from "react-router-dom";
-import Monday from "./Components/Monday/Monday";
 import Header from "./Components/Header/Header";
+import MondayContainer from "./Components/Monday/Monday";
+import TuesdayContainer from "./Components/Tuesday/Tuesday";
+import Wednesday from "./Components/Wednesday/Wednesday";
 
 class App extends React.Component {
-
-
 
     render = () => {
         return (
 
             <HashRouter>
-            <div className="App">
-                <Header/>
-                <Route path='/monday'
-                       render={() => <Monday/>}/>
-                <Route path='/tuesday'
-                       render={() => <Tuesday/>}/>
-            </div>
+                <div className="App">
+                    <Header/>
+                    <Route path='/monday'
+                           render={() => <MondayContainer/>}/>
+                    <Route path='/tuesday'
+                           render={() => <TuesdayContainer/>}/>
+                    <Route path='/wednesday'
+                           render={() => <Wednesday/>}/>
+                </div>
             </HashRouter>
         );
     }

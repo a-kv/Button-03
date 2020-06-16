@@ -1,43 +1,32 @@
 import React from 'react';
 import Button from "../Monday/Button/Button";
-import Input from "../Monday/Input/Input";
 import Text from "../Monday/Text/Text";
 import c from './Mondey.module.css';
+import {incCounterAC, onChangeErrorAC, onChangeTitleAC, setNameAC} from "../../redux/mondayReducer";
+import {connect} from "react-redux";
 
 
 class Monday extends React.Component {
-    state = {
-        number: 0,
-        error: true,
-        names: ['some name'],
-        title: ''
-    }
+
     onChangeClick = () => {
-        this.setState((preNum) => {
-            return {
-                number: preNum.number + 1,
-            };
-        })
-        let newTitle = this.state.title.trim();
-        this.state.title = ""; //проверка на пустую строку
+        // let counter = this.props.number + 1;
+        this.props.onChangeNumber(this.props.number + 1);
+        let newTitle = this.props.title;
+        this.props.onChangeTitle(''); //проверка на пустую строку
         if (newTitle === "") {
-            this.setState({error: true});
+            this.props.onChangeError({error: true});
             alert('error')
         } else {
-
-            this.setState({error: false});
-            let newName = [...this.state.names, newTitle];
-            this.setState({names: newName})
+            this.props.onChangeError({error: false});
+            let newName = [...this.props.names, newTitle];
+            this.props.setName({names: newName})
             alert('Hey, ' + newTitle + '!');
-            this.state.title = '';
+            this.props.onChangeTitle('');
         }
 
     };
     onTitleChange = (e) => {
-        this.setState({
-            error: false,
-            title: e.currentTarget.value
-        });
+        this.props.onChangeTitle(e.target.value);
     };
     onKeyPress = (e) => {
         if (e.key === 'Enter') {
@@ -45,26 +34,50 @@ class Monday extends React.Component {
         }
     }
 
-    render = (props) => {
-        let errorClass = this.state.error ? 'error' : '';
+    render = () => {
+        let errorClass = this.props.error ? 'error' : '';
         return (
             <div className={c.container}>
-                <Text number={this.state.number}/>
+                <Text number={this.props.number}/>
                 <input
                     onChange={this.onTitleChange}
                     className={errorClass}
                     type="text"
                     placeholder="New-item-name"
                     onKeyPress={this.onKeyPress}
-                    value={this.state.title}
+                    value={this.props.title}
                 />
                 <Button onClick={this.onChangeClick}/>
-
             </div>
         );
     }
 }
 
+let mapStateToProps = (state) => {
+    return {
+        number: state.mondayPage.number,
+        error: state.mondayPage.error,
+        names: state.mondayPage.names,
+        title: state.mondayPage.title
+    }
+}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        onChangeNumber: (number) => {
+            dispatch(incCounterAC(number))
+        },
+        onChangeError: (error) => {
+            dispatch(onChangeErrorAC(error))
+        },
+        onChangeTitle: (title) => {
+            dispatch(onChangeTitleAC(title))
+        },
+        setName: (names) => {
+            dispatch(setNameAC(names))
+        }
+    }
 
-export default Monday;
+}
+const MondayContainer = connect(mapStateToProps, mapDispatchToProps)(Monday);
+export default MondayContainer;
 

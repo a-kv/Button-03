@@ -5,12 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {HashRouter} from 'react-router-dom';
 import './assets/fonts/BloodLust-eXxm.ttf'
+import {Provider} from "react-redux";
+import store from "./store";
 
 ReactDOM.render(
 <HashRouter>
-  <React.StrictMode>
-    <App  />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
 </HashRouter>,
   document.getElementById('root')
 );

@@ -14,6 +14,9 @@ class Navbar extends React.Component {
                 <div className={c.item}>
                     <NavLink to='/tuesday' activeClassName={c.activeItem}>Tuesday</NavLink>
                 </div>
+                <div className={c.item}>
+                    <NavLink to='/wednesday' activeClassName={c.activeItem}>Wednesday</NavLink>
+                </div>
 
             </div>
         );

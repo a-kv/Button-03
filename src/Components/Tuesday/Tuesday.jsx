@@ -1,35 +1,31 @@
 import React from 'react';
 import {restoreStore, saveState} from "./stateTodoList";
 import c from './Tuesday.module.css';
-import TodoList from "./TodoList";
+import ConnectedTodolist from "./TodoList";
 import AddNewItemForm from "./Components/Header/AddNewItemForm";
 import loading from '../../assets/150x150.gif';
+import {addTodoListAC, changeLoadingAC} from "../../redux/tuesdayReducer";
+import {connect} from "react-redux";
 
 
 class Tuesday extends React.Component {
-
-    state = {
-        todolists: [
-            // {id: 1, title: 'js'},
-            // {id: 2, title: 'redux'},
-            // {id: 3, title: 'TS'},
-            // {id: 4, title: 'react'}
-        ],
-        loading: true,
-        // created: '12:00',
-        // updated: '12:15',
-        // finished: '17:00'
-    }
-    nextTodoList = 0;
-
+    state = this.props.tuesdayPage;
+    nextTodoList = 0
 
     saveTodolists = () => {
         saveState('todolists', this.state)
     }
+    componentDidMount() {
+        setTimeout(() => {
+            this.props.changeLoading(false)
+        }, 1000)
+        this.restoreTodolists();
+    }
+
     restoreTodolists = () => {
         let newState = restoreStore('todolists', this.state)
         this.setState(newState, () => {
-            this.state.todolists.forEach(t => {
+            this.props.todolists.forEach(t => {
                 if (t.id >= this.nextTodoList) {
                     this.nextTodoList = t.id + 1
                 }
@@ -37,34 +33,31 @@ class Tuesday extends React.Component {
         });
     }
 
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({loading: false})
-        }, 1000)
-        this.restoreTodolists();
 
-    }
 
     addTodoList = (newTodoListName) => {
-        let newTodoList = {
+        let newTodolist = {
             id: this.nextTodoList,
-            title: newTodoListName
+            title: newTodoListName,
+            tasks: []
         };
         this.nextTodoList++;
-        this.setState({todolists: [...this.state.todolists, newTodoList]}, this.saveTodolists);
+        this.props.addTodolist(newTodolist);
+        this.setState({
+            todolists: newTodolist
+        }, this.saveState)
     };
 
     render = () => {
-        if (this.state.loading === true) {
+        if (this.props.loading === true) {
             return <img className={c.loading} src={loading} alt=""/>;
         } else {
-            let todolists = this.state.todolists.map(tl => {
-                return <TodoList className={c.todoList} key={tl.id} id={tl.id} title={tl.title}/>
+            let todolists = this.props.todolists.map(tl => {
+                return <ConnectedTodolist key={tl.id} id={tl.id} title={tl.title} tasks={tl.tasks}/>
             });
 
             return (
-                <div className={c.counter} >
-                    {/*<Moment format="YYYY-MM-DD HH:mm" interval={1000}/>*/}
+                <div className={c.counter}>
                     <AddNewItemForm addItem={this.addTodoList}/>
                     <div className={c.tuesday}>
                         {todolists}
@@ -73,7 +66,28 @@ class Tuesday extends React.Component {
 
             );
         };
-    }
+    };
 }
 
-export default Tuesday;
+
+
+const mapStateToProps = (state) => {
+    return {
+        todolists: state.tuesdayPage.todolists,
+        loading: state.tuesdayPage.loading
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+        addTodolist: (newTodolist) => {
+            dispatch(addTodoListAC(newTodolist));
+        },
+        changeLoading: (loading) => {
+            dispatch(changeLoadingAC(loading));
+        }
+    }
+}
+const TuesdayContainer = connect(mapStateToProps, mapDispatchToProps)(Tuesday);
+export default TuesdayContainer;
+

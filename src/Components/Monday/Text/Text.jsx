@@ -7,7 +7,7 @@ class Text extends React.Component {
     render = () => {
         return (
             <div className={c.text}>
-                <span>{this.props.number} </span>
+                <span>{this.props.number}</span>
             </div>
         )
     };
