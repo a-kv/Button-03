@@ -71,7 +71,6 @@ export const tuesdayReducer = (state = initialState, action) => {
                 loading: false
             }
     }
-    console.log('reducer', action)
     return state;
 }
 
