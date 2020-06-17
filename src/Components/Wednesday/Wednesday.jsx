@@ -28,11 +28,10 @@ class Wednesday extends React.Component {
     f = () => {
         return  axios.post(
             'https://neko-cafe-back.herokuapp.com/auth/test',
-            {success: true},
-            {
-                // success: true,
-                headers: {"API-KEY": "d13010db-d825-4b89-b5a1-3acdd313b6bb"}
-            }
+            {success: this.props.success},
+            // {
+            //     // headers: {"API-KEY": "d13010db-d825-4b89-b5a1-3acdd313b6bb"}
+            // }
         )
             .then(res => {
                 console.log(res)
@@ -59,7 +58,8 @@ class Wednesday extends React.Component {
                     onClick={this.onChangeTheme}
                     type="radio"
                     value="blue"
-                    name="theme"/></div>
+                    name="theme"
+                /></div>
                 <div><button onClick={() => tryCatch(this.f)}>SEND</button><input onClick={this.onChangeChecked}
                     checked={this.props.success}
                     type="radio"
@@ -82,8 +82,8 @@ const mapDispatchToProps = (dispatch) => {
         changeTheme: (style) => {
             dispatch(changeThemeAC(style));
         },
-        changeCheck: (checked) => {
-            dispatch(postCheckAC(checked));
+        changeCheck: (success) => {
+            dispatch(postCheckAC(success));
         },
 
     }
