@@ -6,6 +6,7 @@ import AddNewItemForm from "./Components/Header/AddNewItemForm";
 import loading from '../../assets/150x150.gif';
 import {addTodoListAC, changeLoadingAC} from "../../redux/tuesdayReducer";
 import {connect} from "react-redux";
+import Preloader from "../../common/Preloader";
 
 
 class Tuesday extends React.Component {
@@ -50,7 +51,7 @@ class Tuesday extends React.Component {
 
     render = () => {
         if (this.props.loading === true) {
-            return <img className={c.loading} src={loading} alt=""/>;
+            return <Preloader/>;
         } else {
             let todolists = this.props.todolists.map(tl => {
                 return <ConnectedTodolist key={tl.id} id={tl.id} title={tl.title} tasks={tl.tasks}/>
